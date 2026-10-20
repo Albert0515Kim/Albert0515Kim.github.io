@@ -15,8 +15,8 @@ import { LaptopFrame } from "@/components/visuals/LaptopFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
-// Every slug is prerendered below, so navigation may wait for the full page rather than stream it.
-export const instant = false;
+// Every slug is prerendered below; unknown slugs have no page in the static export.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));

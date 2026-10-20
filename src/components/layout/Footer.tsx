@@ -1,13 +1,8 @@
 import { site } from "@/data/site";
 
-// Cached at build time so the page stays fully static (Cache Components forbids bare `new Date()`).
-async function copyrightYear() {
-  "use cache";
-  return new Date().getFullYear();
-}
-
-export async function Footer() {
-  const year = await copyrightYear();
+export function Footer() {
+  // Evaluated at build time by the static export.
+  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-6 px-5 py-10 md:flex-row md:items-center md:justify-between md:px-10">
