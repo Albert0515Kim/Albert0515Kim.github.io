@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Albert Kim — Portfolio
 
-## Getting Started
+Personal portfolio built with Next.js 16 (App Router, Cache Components), React 19, TypeScript, Tailwind CSS v4, Motion, and React Bits.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (every page is prerendered)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All copy lives in `src/data/`. The components only render what is there.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| File | What it holds |
+| --- | --- |
+| `src/data/site.ts` | Name, email, GitHub, LinkedIn, resume path, nav, education |
+| `src/data/projects.ts` | Project cards and every `/work/[slug]` case study |
+| `src/data/experience.ts` | Experience timeline, accessibility notes, skills |
 
-## Learn More
+Add a project by appending to `projects`. Its case study page is generated automatically. Optional case-study sections (`challenges`, `testing`, `reflection`) are skipped when absent. Every claim in these files came from the resume, the project repos and docs, the Devpost page, or the Porta Arm report. Please keep it that way.
 
-To learn more about Next.js, take a look at the following resources:
+Images live in `public/images/<project>/` and the resume is `public/albert-kim-resume.pdf`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## React Bits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`src/components/reactbits/` holds the official React Bits sources, copied unmodified from the upstream repo (`src/ts-tailwind`):
 
-## Deploy on Vercel
+- `MoltenMetal.tsx`: hero background (WebGL2, no dependencies)
+- `BlurText.tsx`: hero and section heading reveals
+- `Magnet.tsx`: magnetic primary CTAs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ESLint ignores this folder so the files can stay identical to upstream.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+The site is Vercel-ready with no configuration. Set `NEXT_PUBLIC_SITE_URL` to the production URL so Open Graph metadata resolves absolute links.
