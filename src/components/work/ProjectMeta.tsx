@@ -1,14 +1,30 @@
+import { CodeXml } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import { techIcons } from "@/components/ui/techIcons";
 
 type Tone = "dark" | "light";
 
 export function StackLine({ stack, tone = "dark" }: { stack: string[]; tone?: Tone }) {
   return (
-    <p className={`font-mono text-[0.7rem] leading-relaxed tracking-wide ${tone === "dark" ? "text-subtle" : "text-black/45"}`}>
-      <span className="sr-only">Built with: </span>
-      {stack.join("  /  ")}
-    </p>
+    <ul aria-label="Built with" className="flex flex-wrap gap-2">
+      {stack.map((item) => {
+        const Icon = techIcons[item] ?? CodeXml;
+        return (
+          <li
+            key={item}
+            className={`flex items-center gap-2 rounded-xl border py-1 pl-1 pr-3 text-[13px] font-medium ${
+              tone === "dark" ? "border-line bg-ink/40 text-silver" : "border-black/10 bg-white/50 text-paper-ink/80"
+            }`}
+          >
+            <span className={`grid size-6 place-items-center rounded-md ${tone === "dark" ? "bg-ice/10 text-ice" : "bg-black/[0.06] text-paper-ink"}`}>
+              <Icon className="size-3.5" aria-hidden="true" />
+            </span>
+            {item}
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 

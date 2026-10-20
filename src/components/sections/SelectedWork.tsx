@@ -225,14 +225,14 @@ function PortaArm({ p }: { p: Project }) {
           <ProjectActions project={p} />
         </div>
         <div className="grid grid-cols-2 gap-3 lg:col-span-7 lg:grid-rows-[auto_1fr]">
-          {[byName("first-prototype"), byName("mockup"), byName("final-components")].map((g, i) => (
-            <figure key={g.src} className={`relative overflow-hidden rounded-2xl bg-black ${i === 2 ? "col-span-2 aspect-[16/10]" : "aspect-[3/4]"}`}>
+          {[byName("first-prototype"), byName("mockup"), byName("final-wrist")].map((g, i) => (
+            <figure key={g.src} className={`relative overflow-hidden rounded-2xl ${i === 2 ? "col-span-2 aspect-[16/10] bg-white" : "aspect-[3/4] bg-black"}`}>
               <Image
                 src={g.src}
                 alt={g.alt}
                 fill
                 sizes="(min-width: 1024px) 30vw, 50vw"
-                className={`transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] ${i === 0 ? "object-contain py-4" : "object-cover"} ${i === 2 ? "object-[50%_60%]" : ""}`}
+                className={`transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] ${i === 0 ? "object-contain py-4" : i === 2 ? "object-contain p-6" : "object-cover"}`}
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-silver">
                 {g.caption}
