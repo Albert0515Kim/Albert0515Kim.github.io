@@ -5,9 +5,9 @@ import { techIcons } from "@/components/ui/techIcons";
 
 type Tone = "dark" | "light";
 
-export function StackLine({ stack, tone = "dark" }: { stack: string[]; tone?: Tone }) {
+export function StackLine({ stack, tone = "dark", label = "Built with" }: { stack: readonly string[]; tone?: Tone; label?: string }) {
   return (
-    <ul aria-label="Built with" className="flex flex-wrap gap-2">
+    <ul aria-label={label} className="flex flex-wrap gap-2">
       {stack.map((item) => {
         const Icon = techIcons[item] ?? CodeXml;
         return (

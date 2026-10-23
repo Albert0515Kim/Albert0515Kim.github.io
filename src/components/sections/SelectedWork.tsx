@@ -10,6 +10,7 @@ import { BrowserFrame } from "@/components/visuals/BrowserFrame";
 import { CargolineBlueprint } from "@/components/visuals/CargolineBlueprint";
 import { DendriticNetwork } from "@/components/visuals/DendriticNetwork";
 import { AccessibilityCard } from "@/components/sections/Experience";
+import { Button } from "@/components/ui/Button";
 
 const card = "group relative isolate h-full overflow-hidden rounded-[28px] border";
 
@@ -48,21 +49,13 @@ function WilliesWallet({ p }: { p: Project }) {
           <Metrics project={p} />
           <StackLine stack={p.stack} />
           <div className="relative z-10 flex flex-wrap items-center gap-4">
-            <a
-              href={p.links[0].href}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-12 items-center gap-3 rounded-full bg-fg pl-4 pr-5 text-ink transition-colors hover:bg-white"
-            >
-              <svg aria-hidden="true" viewBox="0 0 384 512" className="size-5 fill-current">
+            <Button href={p.links[0].href} external magnetic className="gap-2.5 pl-5">
+              <svg aria-hidden="true" viewBox="0 0 384 512" className="-mt-0.5 size-[18px] fill-current">
                 <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
               </svg>
-              <span className="flex flex-col leading-none">
-                <span className="text-[0.6rem] uppercase tracking-wider opacity-70">Available on the</span>
-                <span className="text-[0.95rem] font-semibold tracking-tight">App Store</span>
-              </span>
+              Download on the App Store
               <span className="sr-only">(opens in a new tab)</span>
-            </a>
+            </Button>
           </div>
         </div>
         <div className="relative order-first lg:order-none lg:col-span-7 lg:min-h-[560px]">

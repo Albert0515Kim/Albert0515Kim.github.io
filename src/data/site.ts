@@ -27,13 +27,13 @@ export const nav = [
 export const education = {
   school: "Northwestern University",
   degree: "BS Computer Science",
-  graduation: "Expected 2028/2029",
-  gpa: "Major GPA 3.67",
+  graduation: "Sep. 2025 – Present",
   coursework: [
     "Data Structures & Algorithms",
     "Intro to Computer Systems",
     "Programming in Systems-Level Languages",
     "Applied Data Management",
     "Computer Game Design and Development",
+    "Smart Electronics in Design",
   ],
 } as const;

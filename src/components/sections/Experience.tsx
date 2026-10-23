@@ -1,4 +1,5 @@
 import { accessibility, accessibilityFixes } from "@/data/experience";
+import { StackLine } from "@/components/work/ProjectMeta";
 
 export function AccessibilityCard() {
   const e = accessibility;
@@ -22,10 +23,7 @@ export function AccessibilityCard() {
               </li>
             ))}
           </ul>
-          <p className="font-mono text-[0.7rem] tracking-wide text-subtle">
-            <span className="sr-only">Tools: </span>
-            {e.tools.join("  /  ")}
-          </p>
+          <StackLine stack={e.tools} label="Tools" />
         </div>
 
         <dl className="grid gap-px self-start overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:col-span-6">

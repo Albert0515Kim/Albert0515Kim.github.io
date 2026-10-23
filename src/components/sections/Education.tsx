@@ -16,9 +16,7 @@ export function Education() {
             <Image src="/images/northwestern-seal.svg" alt="" width={64} height={64} className="size-14 shrink-0 md:size-16" />
             <div>
               <h3 className="text-xl font-semibold tracking-[-0.02em] text-fg md:text-2xl">{education.school}</h3>
-              <p className="mt-1 text-muted">
-                {education.degree} <span className="text-sm text-muted/85">· {education.gpa}</span>
-              </p>
+              <p className="mt-1 text-muted">{education.degree}</p>
             </div>
           </div>
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted sm:pt-2">{education.graduation}</p>
