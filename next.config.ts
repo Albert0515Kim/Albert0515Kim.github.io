@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   // Cache Components is off because it implies PPR, which export mode rejects.
   output: "export",
   images: { unoptimized: true },
+  experimental: {
+    agentUpgrade: "security",
+  },
   turbopack: {
     root: path.join(__dirname),
     rules: {
