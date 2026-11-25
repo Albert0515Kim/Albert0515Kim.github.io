@@ -1,11 +1,10 @@
 import Image from "next/image";
 import { site } from "@/data/site";
-import { Reveal } from "@/components/ui/Reveal";
 
 export function Intro() {
   return (
     <section id="about" aria-labelledby="intro-title" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32 lg:px-24">
-      <Reveal className="grid items-center gap-10 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-16">
+      <div className="grid items-center gap-10 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-16">
         <div className="relative aspect-square w-full max-w-[20rem] overflow-hidden rounded-[24px] border border-line bg-surface">
           {site.portrait ? (
             <Image src={site.portrait} alt={`Portrait of ${site.name}`} fill sizes="320px" className="object-cover" />
@@ -29,7 +28,7 @@ export function Intro() {
             <p>See some of my work and experience below!</p>
           </div>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }

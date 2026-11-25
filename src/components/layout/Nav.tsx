@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { nav, site } from "@/data/site";
 
 export function Nav() {
@@ -51,7 +51,6 @@ export function Nav() {
               className="group inline-flex items-center gap-1 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-silver/50 hover:bg-surface"
             >
               Resume
-              <ArrowUpRight aria-hidden="true" className="size-3.5 transition-transform group-hover:-translate-y-px group-hover:translate-x-px" />
               <span className="sr-only">(PDF, opens in a new tab)</span>
             </a>
           </li>
@@ -94,7 +93,6 @@ export function Nav() {
                     className="flex items-center justify-between py-5 text-3xl font-medium tracking-[-0.03em]"
                   >
                     {item.label}
-                    <span className="font-mono text-xs text-subtle">0{i + 1}</span>
                   </Link>
                 </motion.li>
               ))}

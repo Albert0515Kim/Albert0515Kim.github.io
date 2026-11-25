@@ -2,7 +2,7 @@
 
 export const accessibility = {
   org: "Northwestern University",
-  role: "Front-End Developer · Web Accessibility (Work-Study)",
+  role: "Front-End Developer, Web Accessibility (Work-Study)",
   period: "Oct 2025 – Present",
   location: "Evanston, IL",
   points: [

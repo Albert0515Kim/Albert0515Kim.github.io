@@ -3,16 +3,13 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getProject, projects, type GalleryImage, type Project } from "@/data/projects";
 import { caseStudies, type CaseStudy } from "@/data/caseStudies";
-import { ProjectLabel } from "@/components/work/ProjectMeta";
 import { Collaborators } from "@/components/work/Collaborators";
 import { CaseVisual } from "@/components/work/CaseVisual";
 import { PhoneFrame } from "@/components/visuals/PhoneFrame";
 import { BrowserFrame } from "@/components/visuals/BrowserFrame";
 import { LaptopFrame } from "@/components/visuals/LaptopFrame";
-import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
 // Every slug is prerendered below; unknown slugs have no page in the static export.
@@ -116,15 +113,13 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
     <article>
       <header className="mx-auto max-w-[1400px] px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-44">
         <Link href="/#experience" className="group mb-12 inline-flex items-center gap-2 text-sm text-muted hover:text-fg">
-          <ArrowLeft aria-hidden="true" className="size-4 transition-transform group-hover:-translate-x-1" />
           <span className="link-underline pb-0.5">Back</span>
         </Link>
-        <Reveal>
-          <ProjectLabel project={project} />
-          <h1 className="mt-8 text-[clamp(3.25rem,10vw,9rem)] font-medium leading-[0.9] tracking-[-0.055em]">{project.title}</h1>
+        <div>
+          <h1 className="text-[clamp(3.25rem,10vw,9rem)] font-medium leading-[0.9] tracking-[-0.055em]">{project.title}</h1>
           <p className="mt-6 max-w-3xl text-2xl font-medium leading-snug tracking-[-0.02em] text-silver md:text-3xl">{project.tagline}</p>
-        </Reveal>
-        <Reveal delay={0.1} className="mt-14 grid gap-10 lg:grid-cols-12">
+        </div>
+        <div className="mt-14 grid gap-10 lg:grid-cols-12">
           <div className="flex flex-col gap-6 lg:col-span-6">
             <p className={prose}>{project.summary}</p>
             <Collaborators people={project.credits} />
@@ -132,21 +127,21 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           <dl className="grid grid-cols-2 gap-x-8 gap-y-6 lg:col-span-6">
             {meta.map((m) => (
               <div key={m.k} className="border-t border-line pt-4">
-                <dt className="eyebrow">{m.k}</dt>
+                <dt className="text-sm text-muted">{m.k}</dt>
                 <dd className="mt-2 leading-snug text-fg/90">{m.v}</dd>
               </div>
             ))}
             <div className="col-span-2 border-t border-line pt-4">
-              <dt className="eyebrow">Stack</dt>
-              <dd className="mt-2 font-mono text-sm leading-relaxed text-muted">{project.stack.join("  /  ")}</dd>
+              <dt className="text-sm text-muted">Stack</dt>
+              <dd className="mt-2 leading-relaxed text-fg/90">{project.stack.join(", ")}</dd>
             </div>
           </dl>
-        </Reveal>
+        </div>
         {project.links.length ? (
           <div className="mt-10 flex flex-wrap gap-3">
             {project.links.map((l, i) => (
               <Button key={l.href} href={l.href} external variant={i === 0 ? "primary" : "ghost"} magnetic={i === 0}>
-                {l.label} ↗
+                {l.label}
               </Button>
             ))}
           </div>
@@ -154,9 +149,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
       </header>
 
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <Reveal>
-          <CaseVisual project={project} />
-        </Reveal>
+        <CaseVisual project={project} />
         {project.metrics ? (
           <dl className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
             {project.metrics.map((m) => (
@@ -172,10 +165,9 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
       <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-24 md:px-10 md:py-32 lg:grid-cols-12">
         <nav aria-label="Case study sections" className="hidden lg:col-span-3 lg:block">
           <ol className="sticky top-28 flex flex-col gap-3">
-            {sections.map((s, i) => (
+            {sections.map((s) => (
               <li key={s.id}>
                 <a href={`#${s.id}`} className="group flex gap-3 text-sm text-subtle transition-colors hover:text-fg">
-                  <span className="font-mono text-xs">{String(i + 1).padStart(2, "0")}</span>
                   <span className="link-underline pb-0.5">{s.title}</span>
                 </a>
               </li>
@@ -183,34 +175,29 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           </ol>
         </nav>
         <div className="flex flex-col gap-20 md:gap-28 lg:col-span-9">
-          {sections.map((s, i) => (
-            <Reveal as="section" key={s.id}>
+          {sections.map((s) => (
+            <section key={s.id}>
               <div id={s.id} className="scroll-mt-28">
-                <h2 className="mb-8 flex items-baseline gap-4 text-3xl font-medium tracking-[-0.035em] md:text-5xl">
-                  <span className="font-mono text-sm font-normal tracking-normal text-subtle">{String(i + 1).padStart(2, "0")}</span>
-                  {s.title}
-                </h2>
+                <h2 className="mb-8 text-3xl font-medium tracking-[-0.035em] md:text-5xl">{s.title}</h2>
                 {s.render()}
               </div>
-            </Reveal>
+            </section>
           ))}
         </div>
       </div>
 
       {gallery.length ? (
         <section aria-labelledby="artifacts-title" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
-          <h2 id="artifacts-title" className="eyebrow mb-8">
+          <h2 id="artifacts-title" className="mb-8 text-3xl font-medium tracking-[-0.035em] md:text-5xl">
             Artifacts
           </h2>
           <ul className="grid gap-6 md:grid-cols-2">
             {gallery.map((g) => (
               <li key={g.src}>
-                <Reveal>
-                  <figure>
+                <figure>
                     <GalleryItem g={g} />
-                    {g.caption ? <figcaption className="mt-3 font-mono text-xs tracking-wide text-subtle">{g.caption}</figcaption> : null}
-                  </figure>
-                </Reveal>
+                    {g.caption ? <figcaption className="mt-3 text-sm text-muted">{g.caption}</figcaption> : null}
+                </figure>
               </li>
             ))}
           </ul>
@@ -219,10 +206,9 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
 
       <nav aria-label="Next project" className="border-t border-line">
         <Link href={`/work/${next.slug}`} className="group mx-auto block max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
-          <p className="eyebrow">Next project · {next.index}</p>
+          <p className="text-sm text-muted">Next project</p>
           <p className="mt-6 flex items-center gap-6 text-[clamp(2.5rem,8vw,7rem)] font-medium leading-none tracking-[-0.05em] text-muted transition-colors duration-500 group-hover:text-fg">
             {next.title}
-            <ArrowRight aria-hidden="true" className="size-[0.6em] transition-transform duration-500 group-hover:translate-x-3" />
           </p>
         </Link>
       </nav>

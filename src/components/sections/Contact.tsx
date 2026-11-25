@@ -1,7 +1,6 @@
-import { ArrowDownToLine, ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
-import { Reveal } from "@/components/ui/Reveal";
 
 export function Contact() {
   return (
@@ -11,12 +10,12 @@ export function Contact() {
         <div className="absolute bottom-[-30%] left-[60%] h-[60%] w-[40%] bg-[radial-gradient(closest-side,rgba(232,162,92,0.07),transparent)]" />
       </div>
       <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
-        <Reveal>
+        <div>
           <h2 id="contact-title" className="text-4xl font-semibold tracking-[-0.035em] md:text-5xl">
             Contact
           </h2>
-        </Reveal>
-        <Reveal delay={0.1} className="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
+        </div>
+        <div className="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-6">
             <p className="text-3xl font-medium tracking-[-0.035em] md:text-4xl">Let&apos;s build something great.</p>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
@@ -33,16 +32,16 @@ export function Contact() {
               Email Me
             </Button>
             <Button href={site.github} variant="ghost" external>
-              GitHub <ArrowUpRight aria-hidden="true" className="size-4" />
+              GitHub
             </Button>
             <Button href={site.linkedin} variant="ghost" external>
-              LinkedIn <ArrowUpRight aria-hidden="true" className="size-4" />
+              LinkedIn
             </Button>
             <Button href={site.resume} variant="ghost" download>
-              Download Resume <ArrowDownToLine aria-hidden="true" className="size-4" />
+              Download Resume
             </Button>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

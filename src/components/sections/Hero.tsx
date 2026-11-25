@@ -58,7 +58,7 @@ export function Hero() {
           haze={0.7}
           brightness={1.45}
           drift={0.25}
-          grain={0.035}
+          grain={0}
           offsetX={0.16}
           mouseStrength={0.4}
           flareOnClick={false}

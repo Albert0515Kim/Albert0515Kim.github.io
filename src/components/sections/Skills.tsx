@@ -2,7 +2,6 @@ import type { CSSProperties } from "react";
 import { CodeXml } from "lucide-react";
 import { skills } from "@/data/experience";
 import { techIcons } from "@/components/ui/techIcons";
-import { Reveal } from "@/components/ui/Reveal";
 
 // One accent per card, cycled in order.
 const accents = ["#a8c7fa", "#7dd3c0", "#c4b5fd", "#9fe0a8", "#e8a25c", "#f4a6b8", "#c9ccd2"];
@@ -11,10 +10,9 @@ export function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-title" className="mx-auto max-w-[1400px] px-5 pb-28 md:px-10 md:pb-40">
       <h2 id="skills-title" className="flex items-center gap-3 text-4xl font-semibold tracking-[-0.035em] md:text-5xl">
-        <span className="size-2 rounded-full bg-ice" aria-hidden="true" />
         Skills
       </h2>
-      <Reveal className="mt-10 grid gap-5 md:mt-14 lg:grid-cols-2">
+      <div className="mt-10 grid gap-5 md:mt-14 lg:grid-cols-2">
         {skills.map((s, i) => (
           <div
             key={s.group}
@@ -40,7 +38,7 @@ export function Skills() {
             </ul>
           </div>
         ))}
-      </Reveal>
+      </div>
     </section>
   );
 }

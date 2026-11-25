@@ -41,14 +41,3 @@ export function ProjectActions({ project, tone = "dark" }: { project: Project; t
   );
 }
 
-export function ProjectLabel({ project, tone = "dark" }: { project: Project; tone?: Tone }) {
-  return (
-    <div className={`flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] ${tone === "dark" ? "text-muted" : "text-black/50"}`}>
-      <span className={tone === "dark" ? "text-fg" : "text-paper-ink"}>
-        {project.index} / {project.label}
-      </span>
-      <span aria-hidden="true" className={`h-px w-6 ${tone === "dark" ? "bg-line" : "bg-black/15"}`} />
-      <span>{project.category.filter((c) => c.toLowerCase() !== project.label.toLowerCase()).join(" · ")}</span>
-    </div>
-  );
-}

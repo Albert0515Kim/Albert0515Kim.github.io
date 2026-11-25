@@ -20,7 +20,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     overview:
       "Willie's Wallet is a coupon app for Northwestern students. Students browse deals from local Evanston businesses, save the ones they like, and redeem them at the register. Access is sold as a quarter pass that lines up with Northwestern's academic calendar. The app ships on iOS through the App Store, with a React Native/Expo client and a Python FastAPI backend on top of Supabase.",
     problem:
-      "Willie's Wallet collects student deals from local businesses in one place and makes redemption quick. The student taps the coupon at the register, and it stays valid for two minutes so the cashier can see it. The engineering problem was building that as a real product: verified accounts, paid access, and releases through App Store review.",
+      "Willie's Wallet collects student deals from local businesses in one place and makes redemption quick. The student taps the coupon at the register, and it stays valid for two minutes so the cashier can see it. The engineering problem was turning that into a shipped product: verified accounts, paid access, and releases through App Store review.",
     role: [
       "Led App Store releases: production builds, submissions, and the review cycle.",
       "Built mobile UI across the app's tabs and flows.",
@@ -117,7 +117,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Side effects that shouldn't roll back",
-        body: "Activity logging and volunteer counters run after the inventory transaction commits. If logging fails, the check-in still stands, because an audit-log error shouldn't erase a real donation.",
+        body: "Activity logging and volunteer counters run after the inventory transaction commits. If logging fails, the check-in still stands, because an audit-log error shouldn't erase a donation that happened.",
       },
     ],
     outcome: [
@@ -186,7 +186,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   subsplit: {
     overview:
-      "SubSplit is an API-first platform for splitting group costs. Users form a group, attach a real family or team plan from a seeded catalog, and each member pays their share through Stripe Checkout. A marketplace lets people find open groups instead of needing a full friend group already on the same plan.",
+      "SubSplit is an API-first platform for splitting group costs. Users form a group, attach a family or team plan from a seeded catalog, and each member pays their share through Stripe Checkout. A marketplace lets people find open groups instead of needing a full friend group already on the same plan.",
     problem:
       "Family and team plans assume you already have a stable group to split with. Coordinating recurring payments among people who may not fully trust each other usually means Venmo requests and spreadsheets. Building for the Stripe track meant treating the API as the product: stateful, predictable, and well documented.",
     role: [

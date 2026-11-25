@@ -171,7 +171,7 @@ export const projects: Project[] = [
     contribution:
       "Built the app with a team of five and released it to the School App Store. It won the District 214 App Showcase and was presented at Apple Michigan Avenue.",
     period: "Apr 2024",
-    team: "Team of five · high school",
+    team: "Team of five, high school",
     credits: [
       { name: "Matthew Lundeen", github: "decentishDev" },
       { name: "Efe Ozalp", github: "efe-ozalp" },
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     period: "HackIllinois 2026",
     team: "Team of three",
     credits: [{ name: "Pranav Kota", github: "PranavK178" }, { name: "Sabona Abdi", github: "sabonaoabdi" }],
-    context: "HackIllinois 2026 · Stripe track",
+    context: "HackIllinois 2026, Stripe track",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"],
     metrics: [
       { value: "90+", label: "Plans in the catalog" },

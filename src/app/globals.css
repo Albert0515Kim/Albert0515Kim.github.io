@@ -12,9 +12,9 @@
   --color-graphite: #3a3d44;
   --color-ice: #a8c7fa;
   --color-amber: #e8a25c;
-  --color-paper: #ece6db;
-  --color-paper-2: #e2dacb;
-  --color-paper-ink: #1d1a16;
+  --color-paper: #e8e9ec;
+  --color-paper-2: #dcdee2;
+  --color-paper-ink: #16181c;
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;

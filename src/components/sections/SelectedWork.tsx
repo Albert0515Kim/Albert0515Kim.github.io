@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getProject, type Project } from "@/data/projects";
-import { Reveal } from "@/components/ui/Reveal";
 import { PhoneStage } from "@/components/work/PhoneStage";
 import { LaptopFrame } from "@/components/visuals/LaptopFrame";
 import { PhoneFrame } from "@/components/visuals/PhoneFrame";
@@ -69,7 +68,7 @@ function WilliesWallet({ p }: { p: Project }) {
 function FoodPantry({ p }: { p: Project }) {
   return (
     <article className={`${card} border-black/5 bg-paper text-paper-ink`}>
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(90%_60%_at_100%_0%,rgba(232,162,92,0.22),transparent_60%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(90%_60%_at_100%_0%,rgba(168,199,250,0.30),transparent_60%)]" />
       <div className="flex h-full flex-col gap-10 p-6 sm:p-10">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-7">
@@ -178,7 +177,7 @@ function SubSplit({ p }: { p: Project }) {
           {[detail, docs].map((g) => (
             <figure key={g.src}>
               <BrowserFrame src={g.src} alt={g.alt} width={g.width} height={g.height} tone="light" sizes="(min-width: 1024px) 25vw, 50vw" />
-              <figcaption className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-subtle">{g.caption}</figcaption>
+              <figcaption className="mt-2 text-xs text-muted">{g.caption}</figcaption>
             </figure>
           ))}
         </div>
@@ -207,9 +206,9 @@ function PortaArm({ p }: { p: Project }) {
           <p className="text-lg leading-relaxed text-muted">{p.summary}</p>
           <Collaborators people={p.credits} />
           <ol className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <li key={s.k} className="bg-[#0e0f12] p-4">
-                <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-subtle">0{i + 1} · {s.k}</p>
+                <p className="text-sm font-medium text-fg">{s.k}</p>
                 <p className="mt-2 text-sm leading-snug text-muted">{s.v}</p>
               </li>
             ))}
@@ -227,7 +226,7 @@ function PortaArm({ p }: { p: Project }) {
                 sizes="(min-width: 1024px) 30vw, 50vw"
                 className={`transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] ${i === 0 ? "object-contain py-4" : i === 2 ? "object-contain p-6" : "object-cover"}`}
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-silver">
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 text-xs text-silver">
                 {g.caption}
               </figcaption>
             </figure>
@@ -247,31 +246,31 @@ export function SelectedWork() {
       </h2>
 
       <div className="mt-10 flex flex-col gap-5 md:mt-14 md:gap-6">
-        <Reveal>
+        <div>
           <WilliesWallet p={p("willies-wallet")} />
-        </Reveal>
-        <Reveal>
+        </div>
+        <div>
           <AccessibilityCard />
-        </Reveal>
+        </div>
         <div className="grid gap-5 md:gap-6 lg:grid-cols-12">
-          <Reveal className="h-full lg:col-span-7">
+          <div className="h-full lg:col-span-7">
             <FoodPantry p={p("food-pantry")} />
-          </Reveal>
-          <Reveal className="h-full lg:col-span-5" delay={0.08}>
+          </div>
+          <div className="h-full lg:col-span-5">
             <Cargoline p={p("cargoline")} />
-          </Reveal>
+          </div>
         </div>
         <div className="grid gap-5 md:gap-6 lg:grid-cols-12">
-          <Reveal className="h-full lg:col-span-5">
+          <div className="h-full lg:col-span-5">
             <Dendritic p={p("dendritic")} />
-          </Reveal>
-          <Reveal className="h-full lg:col-span-7" delay={0.08}>
+          </div>
+          <div className="h-full lg:col-span-7">
             <SubSplit p={p("subsplit")} />
-          </Reveal>
+          </div>
         </div>
-        <Reveal>
+        <div>
           <PortaArm p={p("porta-arm")} />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

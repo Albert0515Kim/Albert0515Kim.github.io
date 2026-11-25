@@ -11,8 +11,9 @@ export function AccessibilityCard() {
           <div>
             <h3 className="text-3xl font-medium tracking-[-0.035em] md:text-4xl">{e.org}</h3>
             <p className="mt-2 text-lg text-silver">{e.role}</p>
-            <p className="mt-1 font-mono text-xs tracking-wide text-subtle">
-              {e.period} · {e.location}
+            <p className="mt-1 flex flex-wrap gap-x-4 text-sm text-muted">
+              <span>{e.period}</span>
+              <span>{e.location}</span>
             </p>
           </div>
           <ul className="flex flex-col gap-3">

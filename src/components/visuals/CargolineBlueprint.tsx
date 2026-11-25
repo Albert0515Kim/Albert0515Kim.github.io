@@ -38,9 +38,6 @@ export function CargolineBlueprint({ className = "" }: { className?: string }) {
           </text>
         </g>
       ))}
-      <text x="40" y="36" fill="#5d626b" fontSize="10" fontFamily="var(--font-jetbrains)" letterSpacing="2">
-        FIG. 01 · SYSTEM SKETCH
-      </text>
       <text x="460" y="262" fill="#e8a25c" fontSize="10" fontFamily="var(--font-jetbrains)" opacity="0.8">
         - - manual re-entry, retired
       </text>

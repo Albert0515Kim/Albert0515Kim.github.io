@@ -18,7 +18,7 @@ export function CaseVisual({ project: p }: { project: Project }) {
               <li key={g.src} className={i % 2 ? "lg:translate-y-10" : ""}>
                 <figure>
                   <PhoneFrame src={g.src} alt={g.alt} priority={i < 3} sizes="(min-width: 1024px) 14vw, 30vw" />
-                  {g.caption ? <figcaption className="mt-4 text-center font-mono text-[0.62rem] uppercase tracking-[0.12em] text-subtle">{g.caption}</figcaption> : null}
+                  {g.caption ? <figcaption className="mt-4 text-center text-xs text-subtle">{g.caption}</figcaption> : null}
                 </figure>
               </li>
             ))}
@@ -36,7 +36,7 @@ export function CaseVisual({ project: p }: { project: Project }) {
                 <li key={g.src}>
                   <figure>
                     <PhoneFrame src={g.src} alt={g.alt} sizes="(min-width: 640px) 200px, 30vw" />
-                    <figcaption className="mt-3 text-center font-mono text-[0.62rem] uppercase tracking-[0.12em] text-black/45">{g.caption}</figcaption>
+                    <figcaption className="mt-3 text-center text-xs text-black/50">{g.caption}</figcaption>
                   </figure>
                 </li>
               ))}
